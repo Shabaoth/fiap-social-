@@ -2,3 +2,5 @@
 
 /uploads/*
 !/uploads/foto-exemplo.jpg
+
+.env
