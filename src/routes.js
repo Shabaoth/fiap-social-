@@ -56,6 +56,7 @@ routes.post(
   answerValidators.create,
   answerController.store
 );
+routes.get("/answers", answerController.index);
 
 //rotas do feed
 routes.get("/feed", feedController.index);

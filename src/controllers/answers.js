@@ -1,18 +1,28 @@
+const Answer = require("../models/Answer");
 const Question = require("../models/Question");
 const Student = require("../models/Student");
 
 module.exports = {
-  index(req, res) {
+  async index(req, res) {
+    try {
+      const answers = await Answer.findAll();
 
+      res.send(answers);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
   },
 
-  //função que adiciona uma respota a uma pergunta
+  //função que adiciona uma resposta a uma pergunta
   async store(req, res) {
     const questionId = req.params.id;
 
     const { studentId } = req;
 
     const { description } = req.body;
+
+    console.log(req);
 
     try {
 
